@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int getYearOfBirth(string dateOfBirth) {
+    int pos1 = dateOfBirth.find('/');
+    int pos2 = dateOfBirth.find('/', pos1 + 1);
+    int day = stoi(dateOfBirth.substr(0, pos1));
+    int month = stoi(dateOfBirth.substr(pos1 + 1, pos2 - pos1 - 1));
+    int year = stoi(dateOfBirth.substr(pos2 + 1));
+    return year;
+}
+
+int main() {
+    string dateOfBirth = "10/12/1990";
+    int yearOfBirth = getYearOfBirth(dateOfBirth);
+    cout << "Year of birth: " << yearOfBirth << endl;
+    return 0;
+}
